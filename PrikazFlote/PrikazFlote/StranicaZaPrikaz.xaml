@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:PrikazFlote;assembly=PrikazFlote" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrikazFlote.StranicaZaPrikaz">
+  <ContentView Grid.Row="1" Grid.Column="1" SizeChanged="OnMrežaZaPrikazSizeChanged">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <local:MrežaZaPrikaz x:Name="mreža" />
+      <Button x:Name="složiFlotu" Text=" Složi novu flotu? " HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
+            BorderColor="Black" BorderWidth="2" BackgroundColor="White" TextColor="Black" />
+    </Grid>
+  </ContentView>
+</ContentPage>
