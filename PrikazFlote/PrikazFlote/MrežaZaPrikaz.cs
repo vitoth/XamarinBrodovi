@@ -22,14 +22,16 @@ namespace PrikazFlote
                 }
             }
 
+            BackgroundColor = Color.Navy;
+
             SizeChanged += (sender, args) =>
             {
-                double širinaPolja = Width / Stupaca;
-                double visinaPolja = Height / Redaka;
+                double širinaPolja = (Width - Stupaca * RazmakIzmeđuPolja) / Stupaca;
+                double visinaPolja = (Height - Redaka * RazmakIzmeđuPolja) / Redaka;
 
                 foreach (PoljeZaPrikaz polje in polja)
                 {
-                    Rectangle okvir = new Rectangle(polje.Stupac * širinaPolja, polje.Redak * visinaPolja, širinaPolja, visinaPolja);
+                    Rectangle okvir = new Rectangle(polje.Stupac * širinaPolja + RazmakIzmeđuPolja, polje.Redak * visinaPolja + RazmakIzmeđuPolja, širinaPolja - RazmakIzmeđuPolja, visinaPolja - RazmakIzmeđuPolja);
                     SetLayoutBounds(polje, okvir);
                 }
             };
@@ -38,6 +40,7 @@ namespace PrikazFlote
 
         private const int Stupaca = 10;
         private const int Redaka = 10;
+        private const int RazmakIzmeđuPolja = 1;
 
         PoljeZaPrikaz[,] polja;
     }
