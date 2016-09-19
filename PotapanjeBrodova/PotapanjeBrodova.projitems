@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>207eb1b2-aa9f-4b21-9c53-1c1933158c55</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PotapanjeBrodova</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Brod.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Brodograditelj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Flota.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IGađani.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IPucač.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Kružitelj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mreža.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Napipač.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NasumičniIzbornikPolja.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Polje.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Proširenja.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RječnikSDvaKljuča.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelektivniNapipač.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tamanitelj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TražilicaNizovaPolja.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ČistačPolja.cs" />
+  </ItemGroup>
+</Project>

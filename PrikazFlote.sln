@@ -13,7 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrikazFlote.Windows", "Prik
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrikazFlote", "PrikazFlote\PrikazFlote\PrikazFlote.csproj", "{A382A913-E7F7-4176-8235-3B641E2093F4}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PotapanjeBrodova", "PotapanjeBrodova\PotapanjeBrodova.shproj", "{207EB1B2-AA9F-4B21-9C53-1C1933158C55}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PotapanjeBrodova\PotapanjeBrodova.projitems*{207eb1b2-aa9f-4b21-9c53-1c1933158c55}*SharedItemsImports = 13
+		PotapanjeBrodova\PotapanjeBrodova.projitems*{a382a913-e7f7-4176-8235-3b641e2093f4}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM

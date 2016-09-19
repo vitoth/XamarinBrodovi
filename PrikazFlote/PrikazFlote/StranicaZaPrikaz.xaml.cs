@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using PotapanjeBrodova;
 
 namespace PrikazFlote
 {
@@ -28,6 +29,10 @@ namespace PrikazFlote
 
         void OnSložiNovuFlotu(object sender, object EventArgs)
         {
+            Brodograditelj bg = new Brodograditelj();
+            int[] brodovi = new int[] { 5, 4, 4, 3, 3, 3, 2, 2, 2, 2 };
+            Flota flota = bg.SložiFlotu(10, 10, brodovi);
+            mreža.PrikažiFlotu(flota);
         }
 
     }

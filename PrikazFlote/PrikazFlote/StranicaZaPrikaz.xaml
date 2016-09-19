@@ -7,13 +7,14 @@
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
-      <local:MrežaZaPrikaz x:Name="mreža" />
-      <Button x:Name="složiFlotu" Text=" Složi novu flotu? " HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
-            BorderColor="Black" BorderWidth="2" BackgroundColor="White" TextColor="Black" />
+      <local:MrežaZaPrikaz x:Name="mreža" Grid.Row="0" Grid.Column="0"/>
+      <Button x:Name="složiFlotu" Text="Složi flotu" HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
+            BorderColor="Black" BorderWidth="2" BackgroundColor="White" TextColor="Black" Grid.Row="1" Grid.Column="0"/>
     </Grid>
   </ContentView>
 </ContentPage>

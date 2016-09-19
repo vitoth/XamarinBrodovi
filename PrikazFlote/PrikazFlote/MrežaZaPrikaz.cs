@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 
 using Xamarin.Forms;
+using PotapanjeBrodova;
 
 namespace PrikazFlote
 {
@@ -22,8 +23,6 @@ namespace PrikazFlote
                 }
             }
 
-            BackgroundColor = Color.Navy;
-
             SizeChanged += (sender, args) =>
             {
                 double širinaPolja = (Width - Stupaca * RazmakIzmeđuPolja) / Stupaca;
@@ -35,7 +34,22 @@ namespace PrikazFlote
                     SetLayoutBounds(polje, okvir);
                 }
             };
+        }
 
+        public void PrikažiFlotu(Flota flota)
+        {
+            foreach (var polje in polja)
+                polje.Isprazni();
+
+            foreach (Brod brod in flota.Brodovi)
+            {
+                foreach (Polje polje in brod.Polja)
+                {
+                    int stupac = polje.Stupac;
+                    int redak = polje.Redak;
+                    polja[stupac, redak].SmjestiBrod();
+                }
+            }
         }
 
         private const int Stupaca = 10;
