@@ -27,10 +27,11 @@ namespace PrikazFlote
             {
                 double širinaPolja = (Width - Stupaca * RazmakIzmeđuPolja) / Stupaca;
                 double visinaPolja = (Height - Redaka * RazmakIzmeđuPolja) / Redaka;
+                double veličina = Math.Min(širinaPolja, visinaPolja);
 
                 foreach (PoljeZaPrikaz polje in polja)
                 {
-                    Rectangle okvir = new Rectangle(polje.Stupac * širinaPolja + RazmakIzmeđuPolja, polje.Redak * visinaPolja + RazmakIzmeđuPolja, širinaPolja - RazmakIzmeđuPolja, visinaPolja - RazmakIzmeđuPolja);
+                    Rectangle okvir = new Rectangle(polje.Stupac * veličina + RazmakIzmeđuPolja, polje.Redak * veličina + RazmakIzmeđuPolja, veličina - RazmakIzmeđuPolja, veličina - RazmakIzmeđuPolja);
                     SetLayoutBounds(polje, okvir);
                 }
             };

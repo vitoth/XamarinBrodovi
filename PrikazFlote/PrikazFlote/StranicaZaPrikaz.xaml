@@ -3,7 +3,7 @@
              xmlns:local="clr-namespace:PrikazFlote;assembly=PrikazFlote" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrikazFlote.StranicaZaPrikaz">
-  <ContentView Grid.Row="1" Grid.Column="1" SizeChanged="OnMrežaZaPrikazSizeChanged">
+  <ContentView Grid.Row="3" Grid.Column="1" SizeChanged="OnMrežaZaPrikazSizeChanged">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
@@ -13,8 +13,8 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
       <local:MrežaZaPrikaz x:Name="mreža" Grid.Row="0" Grid.Column="0"/>
-      <Button x:Name="složiFlotu" Text="Složi flotu" HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
-            BorderColor="Black" BorderWidth="2" BackgroundColor="White" TextColor="Black" Grid.Row="1" Grid.Column="0"/>
+      <Button x:Name="tipkaSložiFlotu" Text="Složi flotu" HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
+            Grid.Row="1" Grid.Column="0"/>
     </Grid>
   </ContentView>
 </ContentPage>

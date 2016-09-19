@@ -36,6 +36,6 @@ namespace PrikazFlote
         private bool pogođeno = false;
 
         private static Xamarin.Forms.Color bojaPraznogPolja = Xamarin.Forms.Color.Blue;
-        private static Xamarin.Forms.Color bojaBrodskogPolja = Xamarin.Forms.Color.Maroon;
+        private static Xamarin.Forms.Color bojaBrodskogPolja = Xamarin.Forms.Color.Yellow;
     }
 }
