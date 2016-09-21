@@ -9,17 +9,20 @@ using PotapanjeBrodova;
 
 namespace PrikazFlote
 {
-    public class MrežaZaPrikaz : AbsoluteLayout
+    public class MrežaZaGađanje : AbsoluteLayout
     {
-        public MrežaZaPrikaz()
+        //mre
+        public MrežaZaGađanje()
         {
             polja = new PoljeZaPrikaz[Stupaca, Redaka];
             for (int s = 0; s < Stupaca; ++s)
             {
                 for (int r = 0; r < Redaka; ++r)
                 {
-                    polja[s, r] = new PoljeZaPrikaz(s, r);
-                    Children.Add(polja[s, r]);
+                    var polje = new PoljeZaPrikaz(s, r);
+                    polja[s, r] = polje;
+                    Children.Add(polje);
+                    polje.PoljeGađano += PoljeGađano;
                 }
             }
 
@@ -35,22 +38,20 @@ namespace PrikazFlote
                     SetLayoutBounds(polje, okvir);
                 }
             };
+
+            SložiFlotu();
         }
 
-        public void PrikažiFlotu(Flota flota)
+        public void SložiFlotu()
         {
-            foreach (var polje in polja)
-                polje.Isprazni();
+            Brodograditelj bg = new Brodograditelj();
+            int[] brodovi = new int[] { 5, 4, 4, 3, 3, 3, 2, 2, 2, 2 };
+            flota = bg.SložiFlotu(10, 10, brodovi);
+        }
 
-            foreach (Brod brod in flota.Brodovi)
-            {
-                foreach (Polje polje in brod.Polja)
-                {
-                    int stupac = polje.Stupac;
-                    int redak = polje.Redak;
-                    polja[stupac, redak].SmjestiBrod();
-                }
-            }
+        private void PoljeGađano(object sender, GađanoPoljeEventArgs e)
+        {
+            RezultatGađanja rez = flota.Gađaj(e.Polje);
         }
 
         private const int Stupaca = 10;
@@ -58,5 +59,7 @@ namespace PrikazFlote
         private const int RazmakIzmeđuPolja = 1;
 
         PoljeZaPrikaz[,] polja;
+
+        Flota flota;
     }
 }

@@ -39,6 +39,7 @@
     <Compile Include="IgraćaPloča.xaml.cs">
       <DependentUpon>IgraćaPloča.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MrežaZaGađanje.cs" />
     <Compile Include="MrežaZaPrikaz.cs" />
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>

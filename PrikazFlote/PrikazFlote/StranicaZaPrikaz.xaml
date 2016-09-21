@@ -13,7 +13,7 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
       <local:MrežaZaPrikaz x:Name="mreža" Grid.Row="0" Grid.Column="0"/>
-      <Button x:Name="tipkaSložiFlotu" Text="Složi flotu" HorizontalOptions="Center" VerticalOptions="Center" Clicked="OnSložiNovuFlotu"
+      <Button x:Name="tipkaSložiFlotu" Text="Složi flotu" HorizontalOptions="Center" VerticalOptions="Center"  Clicked="OnSložiNovuFlotu"
             Grid.Row="1" Grid.Column="0"/>
     </Grid>
   </ContentView>
