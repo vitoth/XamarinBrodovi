@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:PrikazFlote;assembly=PrikazFlote" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrikazFlote.IgraćaPloča">
+
+
+  <!-- xmlns:local je za dohvaćanje lokalnih objekata, namespace -->
+
+  <!-- u ova 2 ispod sam morao dodati local: na početak da zna u kojem namespaceu se odnosi, ovaj gore , da zna di se nalazi definicija te klase -->
+  <local:StranicaZaPrikaz />
+  <local:ProtivničkaStranica/>
+</TabbedPage>

@@ -20,6 +20,7 @@ namespace PrikazFlote
                 {
                     polja[s, r] = new PoljeZaPrikaz(s, r);
                     Children.Add(polja[s, r]);
+
                 }
             }
 

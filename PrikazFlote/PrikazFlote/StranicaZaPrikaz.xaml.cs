@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using PotapanjeBrodova;
 
-namespace PrikazFlote
+namespace PrikazFlote //to je taj namsepace koji treba navest u xamlu
 {
     public partial class StranicaZaPrikaz : ContentPage
     {
@@ -18,6 +18,7 @@ namespace PrikazFlote
 
         void OnMrežaZaPrikazSizeChanged(object sender, EventArgs args)
         {
+
             ContentView prikaz = (ContentView)sender;
             double visina = prikaz.Height;
             double rub = (visina - mreža.Width - tipkaSložiFlotu.Height) / 3;

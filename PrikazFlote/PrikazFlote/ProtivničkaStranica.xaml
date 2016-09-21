@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:PrikazFlote" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrikazFlote.ProtivničkaStranica">
+  <!-- xmlns:local je za dohvaćanje lokalnih objekata, namespace -->
+  <!-- x:Class="PrikazFlote.ProtivničkaStranica">   mora bit da zna da se ne odnosi na ovaj njegov content page, nego na moju klasu koja je izcvvedena iz content pagwea -->
+  <ContentView  SizeChanged="OnMrežaZaPrikazSizeChanged">
+      <local:MrežaZaPrikaz x:Name="mreža" />
+
+    <!-- Grid.Row="0" Grid.Column="0"  mi ne treba jer imam samo jedan element, nisam u gridu nego direkt u content view-->
+  </ContentView>
+</ContentPage>

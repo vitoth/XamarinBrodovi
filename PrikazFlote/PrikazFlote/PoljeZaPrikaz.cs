@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace PrikazFlote
 {
@@ -9,6 +10,15 @@ namespace PrikazFlote
             Stupac = stupac;
             Redak = redak;
             Isprazni();
+
+            var tapGestureRecognizer = new TapGestureRecognizer();  //pokušaj dodavanja promjene boje na dodir
+            tapGestureRecognizer.Tapped += (s, e) => {
+                if (this.BackgroundColor == bojaBrodskogPolja)
+                    this.BackgroundColor = bojaPraznogPolja;
+                else
+                    this.BackgroundColor = bojaBrodskogPolja;
+            };
+            this.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         public void SmjestiBrod()

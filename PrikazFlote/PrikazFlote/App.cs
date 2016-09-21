@@ -11,7 +11,7 @@ namespace PrikazFlote
     {
         public App()
         {
-            MainPage = new StranicaZaPrikaz();
+            MainPage = new IgraćaPloča();
         }
 
         protected override void OnStart()
