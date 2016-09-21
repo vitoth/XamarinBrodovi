@@ -8,6 +8,6 @@
   <!-- xmlns:local je za dohvaćanje lokalnih objekata, namespace -->
 
   <!-- u ova 2 ispod sam morao dodati local: na početak da zna u kojem namespaceu se odnosi, ovaj gore , da zna di se nalazi definicija te klase -->
-  <local:StranicaZaPrikaz />
+  <local:MojaStranica />
   <local:ProtivničkaStranica/>
 </TabbedPage>

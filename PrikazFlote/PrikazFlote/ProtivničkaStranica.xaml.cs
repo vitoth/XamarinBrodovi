@@ -24,7 +24,7 @@ namespace PrikazFlote
             double lijeviRub = (širina - veličina) / 2;
             double gornjiRub = (visina - veličina) / 2;
             prikaz.Padding = new Thickness(lijeviRub, gornjiRub);
-        }
+        } 
 
     }
 }
