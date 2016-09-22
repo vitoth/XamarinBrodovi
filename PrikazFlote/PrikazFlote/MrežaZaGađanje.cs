@@ -52,6 +52,7 @@ namespace PrikazFlote
         private void PoljeGađano(object sender, GađanoPoljeEventArgs e)
         {
             RezultatGađanja rez = flota.Gađaj(e.Polje);
+            e.rez = rez;
         }
 
         private const int Stupaca = 10;

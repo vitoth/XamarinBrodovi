@@ -5,7 +5,7 @@
              x:Class="PrikazFlote.ProtivničkaStranica">
   <!-- xmlns:local je za dohvaćanje lokalnih objekata, namespace -->
   <!-- x:Class="PrikazFlote.ProtivničkaStranica">   mora bit da zna da se ne odnosi na ovaj njegov content page, nego na moju klasu koja je izcvvedena iz content pagwea -->
-  <ContentView  SizeChanged="OnMrežaZaPrikazSizeChanged">
+  <ContentView   SizeChanged="OnMrežaZaPrikazSizeChanged">
       <local:MrežaZaGađanje x:Name="mreža" />
 
     <!-- Grid.Row="0" Grid.Column="0"  mi ne treba jer imam samo jedan element, nisam u gridu nego direkt u content view-->

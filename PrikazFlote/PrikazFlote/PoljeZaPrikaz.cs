@@ -10,8 +10,9 @@ namespace PrikazFlote
         {
             Polje = polje;
         }
-
+        
         public readonly Polje Polje;
+        public RezultatGađanja rez;
     }
     public class PoljeZaPrikaz : Xamarin.Forms.Image
     {
@@ -40,12 +41,44 @@ namespace PrikazFlote
 
         protected virtual void OnGađanje()
         {
-            PoljeGađano?.Invoke(this, new GađanoPoljeEventArgs(new Polje(Stupac, Redak)));
+            GađanoPoljeEventArgs args = new GađanoPoljeEventArgs(new Polje(Stupac, Redak));
+            PoljeGađano?.Invoke(this, args);
             // ovo gore je nova konvencija za ovo dolje, provjera je ugrađena i sve
-
+            ObojiPolje(args.rez);
             //if (PoljeGađano != null)  ako imamo nekog ko je pretpalćen na događaj  onda dižemo event
             //    PoljeGađano(this, new GađanoPoljeEventArgs(new Polje(Stupac, Redak))); tu je to dizanje4 eventa
             //šaljemo sendera (this) drugi argument je informacija o polju , eventargs svoj smo morali napravit izveden iz običnog
+        }
+
+
+        public void ObojiPolje(RezultatGađanja rez)
+        {
+            
+            switch (rez)
+            {
+                case RezultatGađanja.Pogodak:
+                    this.Pogodi();
+                    break;
+                case RezultatGađanja.Promašaj:
+                    this.Promaši();
+                    break;
+                case RezultatGađanja.Potonuće:
+                    this.Potopi();
+                    break;
+            }
+        }
+
+        public void Pogodi()
+        {
+            BackgroundColor = bojaPogotka;
+        }
+        public void Promaši()
+        {
+            BackgroundColor = bojaPromašaja;
+        }
+        public void Potopi()
+        {
+            BackgroundColor = bojaPotonuća;
         }
 
         public void SmjestiBrod()
@@ -53,6 +86,7 @@ namespace PrikazFlote
             brodsko = true;
             BackgroundColor = bojaBrodskogPolja;
         }
+
 
         public void Gađaj()
         {
@@ -74,5 +108,8 @@ namespace PrikazFlote
 
         private static Xamarin.Forms.Color bojaPraznogPolja = Xamarin.Forms.Color.Blue;
         private static Xamarin.Forms.Color bojaBrodskogPolja = Xamarin.Forms.Color.Yellow;
+        private static Xamarin.Forms.Color bojaPromašaja = Xamarin.Forms.Color.Gray;
+        private static Xamarin.Forms.Color bojaPogotka = Xamarin.Forms.Color.Black;
+        private static Xamarin.Forms.Color bojaPotonuća= Xamarin.Forms.Color.Red;
     }
 }
