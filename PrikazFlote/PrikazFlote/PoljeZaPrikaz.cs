@@ -28,26 +28,27 @@ namespace PrikazFlote
                     this.BackgroundColor = bojaPraznogPolja;
                 else
                     this.BackgroundColor = bojaBrodskogPolja;
-                this.OnGađanje();
+                this.OnProtivničkoPoljeJeGađano();  //zovemo event i pretpostavljamo da će obavijestiti pretplatnike
             };
             this.GestureRecognizers.Add(tapGestureRecognizer);
         } // napravit ovdje public event negdje dolje unutar klase, koji će jednostavno poslat informaciju koji je stupac redk kliknut
         //i moram imati
 
 
-        public delegate void GađanjePolja(object sender, GađanoPoljeEventArgs e);
+        public delegate void ProtivničkoPoljeJeGađanoEventHandler(object sender, GađanoPoljeEventArgs e); //1. definiramo delegat
 
-        public event GađanjePolja PoljeGađano;
+        public event ProtivničkoPoljeJeGađanoEventHandler ProtivničkoPoljeJeGađano; //2.definiramo event na temelju delegatra
 
-        protected virtual void OnGađanje()
-        {
+        protected virtual void OnProtivničkoPoljeJeGađano() //3. raising event ,event publisher methods should be protected, virtual and void, započinje s On  i onda ime eventa ProtivničkoPoljeJeGađano
+        { //odgovornost ove metode je obavijestiti pretplatnike
             GađanoPoljeEventArgs args = new GađanoPoljeEventArgs(new Polje(Stupac, Redak));
-            PoljeGađano?.Invoke(this, args);
+            ProtivničkoPoljeJeGađano?.Invoke(this, args);
             // ovo gore je nova konvencija za ovo dolje, provjera je ugrađena i sve
             ObojiPolje(args.rez);
             //if (PoljeGađano != null)  ako imamo nekog ko je pretpalćen na događaj  onda dižemo event
             //    PoljeGađano(this, new GađanoPoljeEventArgs(new Polje(Stupac, Redak))); tu je to dizanje4 eventa
             //šaljemo sendera (this) drugi argument je informacija o polju , eventargs svoj smo morali napravit izveden iz običnog
+            //koji je izvor eventa, tj ko publisha event, to je trenutna klasa, tj this,
         }
 
 

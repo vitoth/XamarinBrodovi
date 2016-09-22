@@ -6,6 +6,7 @@ using System.Text;
 
 using Xamarin.Forms;
 using PotapanjeBrodova;
+using System.Collections;
 
 namespace PrikazFlote
 {
@@ -14,6 +15,7 @@ namespace PrikazFlote
         //mre
         public MrežaZaGađanje()
         {
+
             polja = new PoljeZaPrikaz[Stupaca, Redaka];
             for (int s = 0; s < Stupaca; ++s)
             {
@@ -22,7 +24,8 @@ namespace PrikazFlote
                     var polje = new PoljeZaPrikaz(s, r);
                     polja[s, r] = polje;
                     Children.Add(polje);
-                    polje.PoljeGađano += PoljeGađano;
+                    polje.ProtivničkoPoljeJeGađano += OnProtivničkoPoljeJeGađano; //registriramo handler(desno) za event(lijevo)
+
                 }
             }
 
@@ -47,12 +50,32 @@ namespace PrikazFlote
             Brodograditelj bg = new Brodograditelj();
             int[] brodovi = new int[] { 5, 4, 4, 3, 3, 3, 2, 2, 2, 2 };
             flota = bg.SložiFlotu(10, 10, brodovi);
+            flota.ProtivničkiBrodJePotopljen += OnProtivničkiBrodJePotopljen;
         }
 
-        private void PoljeGađano(object sender, GađanoPoljeEventArgs e)
+        private void OnProtivničkiBrodJePotopljen(object sender, Flota.PotopljeniBrodEventArgs e)
         {
+            if(e!=null && e.PoljaPotopljenogBroda != null)
+            foreach (PoljeZaPrikaz polje in polja)
+            {
+                if (e.PoljaPotopljenogBroda.Contains(new Polje(polje.Stupac, polje.Redak)))
+                    polje.ObojiPolje(RezultatGađanja.Potonuće);
+            }
+        }
+
+        public void OnProtivničkoPoljeJeGađano(object sender, GađanoPoljeEventArgs e)
+        {
+
             RezultatGađanja rez = flota.Gađaj(e.Polje);
+
+
             e.rez = rez;
+        }
+
+
+        private void OnProtivničkiBrodJePotopljen(object sender, Brod.PotopljeniBrodEventArgs e)
+        {
+           
         }
 
         private const int Stupaca = 10;
@@ -60,6 +83,8 @@ namespace PrikazFlote
         private const int RazmakIzmeđuPolja = 1;
 
         PoljeZaPrikaz[,] polja;
+
+        List<Polje> poljaPotopljenogBroda;
 
         Flota flota;
     }
